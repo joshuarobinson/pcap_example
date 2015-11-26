@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 
     while ((packet = pcap_next(handle,&header)) != nullptr) {
       // header contains information about the packet (e.g. timestamp)
-      u_char *pkt_ptr = (u_char *)packet; //cast a pointer to the packet data
+      u_char *pkt_ptr = packet;
 
       //parse the first (ethernet) header, grabbing the type field
       int ether_type = ((int)(pkt_ptr[12]) << 8) | (int)pkt_ptr[13];
